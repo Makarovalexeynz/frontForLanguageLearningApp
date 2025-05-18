@@ -22,6 +22,7 @@
             <button id="add-tag-btn"><i class="fas fa-plus"></i> Добавить тэг</button>
         </div>
     </header>
+    <input type="text" id="search" placeholder="Поиск карточек...">
 
     <div class="cards-container" id="cards">
         <!-- Карточки будут добавлены через JavaScript -->
@@ -35,17 +36,39 @@
             <form id="card-form">
                 <div class="form-group">
                     <label for="word">Слово/Фраза:</label>
-                    <input type="text" id="word" required>
+                    <input type="text" id="word" required placeholder="Например: apple">
                 </div>
+
                 <div class="form-group">
                     <label for="translation">Перевод:</label>
-                    <input type="text" id="translation" required>
+                    <input type="text" id="translation" required placeholder="Например: яблоко">
                 </div>
+
+                <div class="form-group">
+                    <label for="language">Язык:</label>
+                    <select id="language" required>
+                        <option value="" disabled selected>Выберите язык</option>
+                        <option value="english">Английский</option>
+                        <option value="german">Немецкий</option>
+                        <option value="french">Французский</option>
+                    </select>
+                </div>
+
                 <div class="form-group">
                     <label for="example">Пример использования:</label>
-                    <textarea id="example"></textarea>
+                    <textarea id="example" placeholder="Например: I eat an apple every morning."></textarea>
                 </div>
-                <button type="submit">Сохранить</button>
+
+                <div class="form-group">
+                    <label for="tags">Теги (через запятую):</label>
+                    <input type="text" id="tags" placeholder="Например: фрукты, еда, базовые">
+                    <small class="hint">Можно добавить несколько тегов, разделяя их запятыми</small>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn">Отмена</button>
+                    <button type="submit" class="submit-btn">Сохранить карточку</button>
+                </div>
             </form>
         </div>
     </div>

@@ -1,7 +1,9 @@
 // ========== DOM Элементы ==========
 const cardsContainer = document.getElementById('cards');
+const searchInput = document.getElementById('search');
 const languageSelect = document.getElementById('language-select');
 const addCardBtn = document.getElementById('add-card-btn');
+const studyModeBtn = document.getElementById('study-mode-btn');
 const modal = document.getElementById('modal');
 const closeModal = document.querySelector('.close');
 const cardForm = document.getElementById('card-form');
@@ -137,7 +139,7 @@ async function handleFormSubmit(e) {
         example: formData.get('example'),
         language: languageSelect.value
     };
-    
+
     try {
         const response = await fetch(API_BASE_URL, {
             method: 'POST',
@@ -146,9 +148,9 @@ async function handleFormSubmit(e) {
             },
             body: JSON.stringify(cardData)
         });
-        
+
         if (!response.ok) throw new Error('Ошибка сохранения');
-        
+
         const newCard = await response.json();
         cards.push(newCard);
         renderCards();
@@ -158,5 +160,6 @@ async function handleFormSubmit(e) {
         console.error('Ошибка:', error);
         alert('Не удалось сохранить карточку: ' + error.message);
     }
+
 }
 
